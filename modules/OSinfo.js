@@ -22,11 +22,16 @@ function getOSinfo() {
 function time() {
 	var uptime = os.uptime();
 	var hour = uptime / 3600;
-	var minute = uptime / 60;
+	var minute = (hour - Math.floor(hour)) * 60;
+	var second = (minute - Math.floor(minute)) * 60;
+
+
 	if (uptime >= 60 && uptime < 3600) {
-		console.log('Uptime: ~', minute.toFixed(0), 'min');
+		console.log('Uptime: ~', Math.floor(minute), 'min', Math.floor(second), "sek.");
 	} if (uptime >= 3600)  {
-		console.log('Uptime: ~', Math.floor(hour),'h');
+		console.log('Uptime: ~', Math.floor(hour),'godz.', Math.floor(minute), 'min.', Math.floor(second), "sek.");	
+	} if (uptime < 60) {
+		console.log('Uptime: ~', Math.floor(uptime), "sek.");
 	}
 }
 

@@ -26,7 +26,7 @@ function time() {
 	if (uptime >= 60 && uptime < 3600) {
 		console.log('Uptime: ~', minute.toFixed(0), 'min');
 	} if (uptime >= 3600)  {
-		console.log('Uptime: ~', hour,'h');
+		console.log('Uptime: ~', Math.floor(hour),'h');
 	}
 }
 
